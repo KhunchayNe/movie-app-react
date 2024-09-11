@@ -1,6 +1,10 @@
+import HomeSlider from "../../components/navbar/Home/HomeSlider"
+
 function Home() {
   return (
-    <div>Home</div>
+    <div className="w-[90%] mx-auto">
+      <HomeSlider />
+    </div>
   )
 }
 
