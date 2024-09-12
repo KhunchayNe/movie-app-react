@@ -1,13 +1,45 @@
 
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { CarouselMovie } from '../../../utils/constants'
 import { baseApi } from '../../../api/axiosInstance'
 import HomeCarousel from './Homecarousel'
 import HomeCarouselList from './HomeCarouselList'
 function HomeSlider() {
 
-    const [carouselMovies, setCarouselMovies] = React.useState<CarouselMovie[]>([])
-    const [next, setNext] = React.useState<number[]>([1,2,3])
+    const [carouselMovies, setCarouselMovies] = useState<CarouselMovie[]>([])
+    const [selected, setSelected] = useState<number>(0)
+    const [next, setNext] = useState<number[]>([])
+
+
+    useEffect(() => {
+        if (carouselMovies.length > 0) {
+            const ind1 = (selected + 1) % carouselMovies.length
+            const ind2 = (selected + 2) % carouselMovies.length
+            const ind3 = (selected + 3) % carouselMovies.length
+            setNext([ind1, ind2, ind3])
+
+        }
+    }, [carouselMovies, selected])
+
+    useEffect(() => {
+        const myCarousel = document.getElementById('carouselExample')
+        
+        const handleSlide = (e: any) => {
+            console.log(e.from, "---" , e.to)
+            setSelected(e.to)
+        }
+        
+        if(myCarousel){
+            myCarousel.addEventListener('slide.bs.carousel', handleSlide)
+
+            return () => {
+                myCarousel.removeEventListener('slide.bs.carousel', handleSlide)
+            }
+        }
+
+    }, [])
+
+
 
     const fetchUpcoming = async () => {
         try {
@@ -32,24 +64,24 @@ function HomeSlider() {
 
 
 
-            <div className="row">
-                <div className="relative col-8">
-                    <div id="carouselExample" className="carousel slide">
-                        <HomeCarousel carouselMovies={carouselMovies} />
-                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span className="visually-hidden">Previous</span>
-                        </button>
-                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span className="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-                <div className="col-4">
-                    <HomeCarouselList next={next} carouselMovies={carouselMovies}/>
+        <div className="row">
+            <div className="relative col-8">
+                <div id="carouselExample" className="carousel slide">
+                    <HomeCarousel carouselMovies={carouselMovies} />
+                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
+            <div className="col-4">
+                <HomeCarouselList next={next} carouselMovies={carouselMovies} />
+            </div>
+        </div>
     )
 }
 

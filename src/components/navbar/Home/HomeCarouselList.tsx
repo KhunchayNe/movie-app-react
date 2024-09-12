@@ -8,7 +8,6 @@ interface HomeCarouselListProps {
 
 function HomeCarouselList({ next, carouselMovies }: HomeCarouselListProps) {
     console.log(next)
-    console.log(carouselMovies)
     return (
         <>
             <div>
@@ -16,8 +15,8 @@ function HomeCarouselList({ next, carouselMovies }: HomeCarouselListProps) {
                 {
                     next.map((item, index) => (
 
-                        <div className="flex gap-2">
-                            <img src={imagepath + carouselMovies[item]?.poster_path} className="w-[100px]" alt="" />
+                        <div className="flex gap-2" key={index}>
+                            <img src={imagepath + carouselMovies[item]?.poster_path} className="w-[100px]" alt=""/>
                             <div className="flex flex-col justify-between py-2">
                                 <div className="leading-5">
                                     <h1>{carouselMovies[item]?.title}</h1>
