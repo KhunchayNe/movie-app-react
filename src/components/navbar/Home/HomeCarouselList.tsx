@@ -7,7 +7,7 @@ interface HomeCarouselListProps {
 }
 
 function HomeCarouselList({ next, carouselMovies }: HomeCarouselListProps) {
-    console.log(next)
+    // console.log(next)
     return (
         <>
             <div>

@@ -13,6 +13,7 @@ function HomeSlider() {
 
     useEffect(() => {
         if (carouselMovies.length > 0) {
+            // console.log(carouselMovies.length)
             const ind1 = (selected + 1) % carouselMovies.length
             const ind2 = (selected + 2) % carouselMovies.length
             const ind3 = (selected + 3) % carouselMovies.length
