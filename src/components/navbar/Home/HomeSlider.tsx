@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react'
 import { CarouselMovie } from '../../../utils/constants'
 import { baseApi } from '../../../api/axiosInstance'
-import HomeCarousel from './Homecarousel'
 import HomeCarouselList from './HomeCarouselList'
+import HomeCarousel from './HomeCarousel'
 function HomeSlider() {
 
     const [carouselMovies, setCarouselMovies] = useState<CarouselMovie[]>([])

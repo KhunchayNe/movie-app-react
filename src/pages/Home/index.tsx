@@ -3,6 +3,7 @@ import { baseApi } from "../../api/axiosInstance"
 import HomeSlider from "../../components/navbar/Home/HomeSlider"
 import { movieCard } from "../../utils/constants"
 import MovieList from "../../components/navbar/Home/MovieList"
+import LoadMoreBth from "../../components/Button/LoadMoreBth"
 
 function Home() {
   const [movies, setMovies] = useState<movieCard[]>([])
@@ -19,9 +20,10 @@ function Home() {
   useEffect(() => {fetchMovies()}, [])
   return (
     <>
-    <div className="w-[90%] mx-auto">      
+    <div className="w-[90%] mx-auto mb-44">      
       <HomeSlider />
       <MovieList movies={movies} />
+      <LoadMoreBth />
     </div>
     </>
   )

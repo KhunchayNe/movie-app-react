@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { CarouselMovie, imagepath } from "../../../utils/constants"
 import { FiThumbsUp } from "react-icons/fi"
 
@@ -7,6 +8,8 @@ interface HomeCarouselListProps {
 }
 
 function HomeCarouselList({ next, carouselMovies }: HomeCarouselListProps) {
+
+    const [hover, setHover] = useState<number | null>(null)
     // console.log(next)
     return (
         <>
@@ -15,11 +18,13 @@ function HomeCarouselList({ next, carouselMovies }: HomeCarouselListProps) {
                 {
                     next.map((item, index) => (
 
-                        <div className="flex gap-2" key={index}>
+                        <div className="flex gap-2" key={index}
+                        onMouseEnter={()=>setHover(index)}
+                        onMouseLeave={()=>setHover(null)}>
                             <img src={imagepath + carouselMovies[item]?.poster_path} className="w-[100px]" alt=""/>
                             <div className="flex flex-col justify-between py-2">
                                 <div className="leading-5">
-                                    <h1>{carouselMovies[item]?.title}</h1>
+                                    <h1 className={`${hover == index ?'underline' :''}`}>{carouselMovies[item]?.title}</h1>
                                     <h1 className="text-md line-clamp-3 text-zinc-300">{carouselMovies[item]?.overview}</h1>
                                 </div>
                                 <div className="flex gap-1 text-center">

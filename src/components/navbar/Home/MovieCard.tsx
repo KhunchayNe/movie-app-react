@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { imagepath, movieCard } from '../../../utils/constants'
 
 interface MovieListProps {
@@ -12,13 +12,13 @@ function MovieCard({ movie, key }: MovieListProps) {
         <div className="col"
             onMouseEnter={() => setHover(movie.id)}
             onMouseLeave={() => setHover(null)}>
-            <div className={`my-3 border-2 border-zinc-800 rounded-lg overflow-hidden ${movie.id === hover?'scale-[104%]':''} duration-200`} key={key}>
+            <div className={`my-3 border-2 border-zinc-800 rounded-lg overflow-hidden ${movie.id === hover ? 'scale-[104%]' : ''} duration-200`} key={key}>
                 <div className="relative">
-                    <img src={imagepath + movie?.poster_path} alt="" />
+                    <img src={imagepath + movie?.poster_path} alt="" className='aspect-[3/4]' />
                     <div className="absolute bottom-0 w-full h-28 _carouselGradient"></div>
                 </div>
                 <div className="bg-[#222] p-2">
-                    <h1 className='text-[16px] font-semibold line-clamp-1'>{movie.title}</h1>
+                    <h1 className={`text-[16px] font-semibold line-clamp-1  ${movie.id === hover ? 'underline' : ''}`}>{movie.title}</h1>
                     <div className="text-[15px] text-zinc-300 mt-2">
                         <h1 className=''>Rating : {String(movie?.vote_average).substring(0, 3)}</h1>
                         <h1 className=''>Language : {movie?.original_language}</h1>
