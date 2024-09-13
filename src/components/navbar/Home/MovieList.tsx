@@ -1,4 +1,4 @@
-import { imagepath, movieCard } from '../../../utils/constants'
+import { movieCard } from '../../../utils/constants'
 import MovieCard from './MovieCard'
 
 interface MovieListProps {
