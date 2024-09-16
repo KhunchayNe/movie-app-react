@@ -3,14 +3,16 @@ import MovieCard from './MovieCard'
 
 interface MovieListProps {
     movies: movieCard[]
+    title?: string
 }
 
-function MovieList({ movies }: MovieListProps) {
-    console.log(movies)
+function MovieList({ movies,title }: MovieListProps) {
+    // console.log(movies)
     return (
         <>
             <div className="m-14">
-                <h1 className='text-xl font-bold text-yellow-500'>Top Rated Movies</h1>
+                {}
+                <h1 className='text-xl font-bold text-yellow-500'>{title}</h1>
                 <div className="row row-cols-6">
                     {
                         movies.length > 0 && movies.map((movie, index) => (
