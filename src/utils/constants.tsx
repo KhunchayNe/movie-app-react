@@ -29,3 +29,16 @@ export const category: CategoryType[] = [
     { name: "Top Rated", endpoint: "/movie/top_rated" },
     { name: "Upcoming", endpoint: "/movie/upcoming" }
 ]
+
+export interface MovieDetails {
+    id: number
+    poster_path: string
+    backdrop_path: string
+    original_title: string
+    release_date: string
+    tagline: string
+    overview: string
+    genres: {name: string }[]
+    vote_average: number
+    original_language: string
+}
