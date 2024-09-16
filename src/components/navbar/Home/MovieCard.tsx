@@ -9,7 +9,7 @@ interface MovieListProps {
 function MovieCard({ movie }: MovieListProps) {
     const [hover, setHover] = useState<number | null>(null)
     return (
-        <Link to={`details/${movie.id}`}>
+        <Link to={`/details/${movie.id}`}>
             <div className="col"
                 onMouseEnter={() => setHover(movie.id)}
                 onMouseLeave={() => setHover(null)}>

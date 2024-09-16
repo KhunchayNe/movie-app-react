@@ -14,7 +14,7 @@ function Trailers({ id }: TrailersProps) {
         try {
             const resp = await baseApi.get(`/movie/${id}/videos?language=en-US`)
             const trailers = resp.data.results.filter((data: { type: string }) => data.type === 'Trailer')
-            console.log('fetchDetails -> trailers', trailers)
+            // console.log('fetchDetails -> trailers', trailers)
 
             setTrailers(trailers);
 
@@ -24,7 +24,7 @@ function Trailers({ id }: TrailersProps) {
     }
     useEffect(() => {
         featchTrailers()
-    }, [])
+    }, [trailers])
 
     const opts = {
         height: '280',

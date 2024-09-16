@@ -61,7 +61,7 @@ function Movie() {
   useEffect(() => {
     const current = category.findIndex((item) => item.name === filter)
     fetchMovies(current, 1)
-    console.log('useEffect -> current', current)
+    // console.log('useEffect -> current', current)
   }, [filter])
 
   const handleLoadMore = async () => {
