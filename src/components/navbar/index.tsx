@@ -65,14 +65,14 @@ function Navbar() {
                         type="text" />
                     {
                         showSearch && searchResult.length > 0 &&
-                        <div className="absolute top-1 right-1 text-yellow-500 text-2xl z-30">
+                        <div className="absolute top-1 right-1 text-yellow-500 sm:text-2xl text-xl z-30">
                             <IoClose onClick={toggleShow} />
                         </div>
 
                     }
                     {showSearch && <div className="relative" onClick={toggleShow}>
 
-                        <div className="absolute z-50 left-0 w-full bg-zinc-800 rounded-xl">
+                        <div className="sm:absolute fixed z-50 left-0 sm:max-w-[500px] w-full bg-zinc-800 rounded-xl">
                             <div className="py-3 pl-5">
                                 <div className="flex flex-col gap-2 h-fit max-h-[380px] overflow-y-auto">
                                     {searchResult.length > 0 && searchResult.map((movie, index) =>

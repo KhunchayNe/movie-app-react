@@ -77,12 +77,12 @@ function Movie() {
 
   return (
     <div className="w-[90%] mx-auto mt-4">
-      <h1 className="text-3xl font-bold text-yellow-500">Explore Movie</h1>
-      <div className="flex mt-2">
+      <h1 className="md:text-3xl sm:text-2xl text-xl font-bold text-yellow-500">Explore Movie</h1>
+      <div className="flex flex-wrap mt-2">
         {
           category.map((item, index) => (
             <div key={index} className="" >
-              <button className="text-base font-semibold w-44 h-10 hover:bg-[#121212]"
+              <button className="md:text-base sm:text-sm text-xs font-semibold lg:w-44 md:w-40 sm:w-36 p-2 h-10 hover:bg-[#121212]"
                 onClick={() => toggleSelection(item.name)}>{item.name}</button>
               {/* {filter === item.name && <div className="h-0.5  w-full bg-blue-400 mx-auto duration-200"></div>} */}
 

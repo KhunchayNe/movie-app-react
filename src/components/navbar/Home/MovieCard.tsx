@@ -19,7 +19,7 @@ function MovieCard({ movie }: MovieListProps) {
                         <div className="absolute bottom-0 w-full h-28 _carouselGradient"></div>
                     </div>
                     <div className="bg-[#222] p-2">
-                        <h1 className={`text-[16px] font-semibold line-clamp-1  ${movie.id === hover ? 'underline' : ''}`}>{movie.title}</h1>
+                        <h1 className={`md:text-[17px] text-sm  font-semibold line-clamp-1  ${movie.id === hover ? 'underline' : ''}`}>{movie.title}</h1>
                         <div className="text-[15px] text-zinc-300 mt-2">
                             <h1 className=''>Rating : {String(movie?.vote_average).substring(0, 3)}</h1>
                             <h1 className=''>Language : {movie?.original_language}</h1>
