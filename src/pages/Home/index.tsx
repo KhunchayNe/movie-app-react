@@ -21,7 +21,7 @@ function Home() {
 
   useEffect(() => {
     fetchMovies()
-    console.log('fetching movies')
+    // console.log('fetching movies')
   }, [page])
 
   const handlePageUpdate = () => {

@@ -24,7 +24,7 @@ function Movie() {
 
   const fetchMovies = async (index: number, pageindex: number) => {
     try {
-      console.log('fetch',pageComplete[index],pageindex)
+      // console.log('fetch',pageComplete[index],pageindex)
       if (pageComplete[index] === pageindex) return
 
       const resp = await baseApi.get(`${category[index].endpoint}?language=en-US&page=${pageindex}`)

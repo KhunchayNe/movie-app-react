@@ -17,7 +17,7 @@ function HomeCarousel({ carouselMovies }: carouselMovies) {
                             <div className={`carousel-item ${index == 0 ? 'active' : ''} h-full`} key={index}>
                                 <div className='relative h-full'>
                                     {/* <div className='block w-[900px] bg-red-300 aspect-[7/4]'></div> */}
-                                    <img src={imagepath + movie?.backdrop_path} className='w-full h-full min-h-[300px] object-cover' alt="" />
+                                    <img src={imagepath + movie?.backdrop_path} className='w-full h-full min-h-[300px] object-cover aspect-[7/4]' alt="" />
                                     {/* <div className="absolute w-full h-full top-0 left-0 bg-black"></div> */}
                                     <div className='absolute bottom-0 h-44 w-full _carouselGradient'></div>
                                 </div>

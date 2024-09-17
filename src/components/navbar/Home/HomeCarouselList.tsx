@@ -18,7 +18,7 @@ function HomeCarouselList({ next, carouselMovies }: HomeCarouselListProps) {
                     {
 
                         next.map((item, index) => (
-                            <CarouselMiniCard carouselMovies={carouselMovies} item={item} index={index} />
+                            <CarouselMiniCard carouselMovies={carouselMovies} item={item} index={index} key={index}/>
 
 
                         ))
