@@ -4,6 +4,7 @@ import { baseApi } from "../../api/axiosInstance"
 import { imagepath, MovieDetails } from "../../utils/constants"
 import Trailers from "../../components/MovieDetails/Trailers"
 import SimularMovie from "../../components/MovieDetails/SimularMovie"
+import DetailsSkeleton from "../../components/Skeleton/DetailsSkeleton"
 
 function Details() {
   const { id } = useParams<{ id: string }>()
@@ -23,10 +24,10 @@ function Details() {
   useEffect(() => {
     fetchDetails()
   }, [id])
-
+  
   return (
     <div>
-      {details &&
+      {details === undefined ? <DetailsSkeleton /> : 
         <div className="relative h-fit w-full">
           <div className="relative">
             <img src={imagepath + details?.poster_path} alt="backgroud" 
@@ -37,7 +38,7 @@ function Details() {
             <div className="w-[90%] mx-auto lg:mt-[500px] md:mt-[400px] sm:mt-[300px] mt-[200px]">
               <div className="md:flex gap-8">
                 <img src={imagepath + details?.poster_path}
-                  className="lg:w-[350px] md:w-[280px] sm:w-[250px] w-[200px] h-fit" alt="" />
+                  className="lg:w-[350px] md:w-[280px] sm:w-[250px] w-[200px] h-fit aspect-[4/6]" alt="" />
                 <div className="">
                   <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-2xl">{details?.original_title}
                     <span className="mx-3 lg:text-4xl md:text-3xl ms:text-2xl text-xl">({details?.release_date.substring(0, 4)})</span>

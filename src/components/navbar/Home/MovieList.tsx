@@ -1,4 +1,5 @@
 import { movieCard } from '../../../utils/constants'
+import MovieCardSkeleton from '../../Skeleton/MovieCardSkeleton'
 import MovieCard from './MovieCard'
 
 interface MovieListProps {
@@ -6,7 +7,7 @@ interface MovieListProps {
     title?: string
 }
 
-function MovieList({ movies,title }: MovieListProps) {
+function MovieList({ movies, title }: MovieListProps) {
     // console.log(movies)
     return (
         <>
@@ -14,9 +15,14 @@ function MovieList({ movies,title }: MovieListProps) {
                 <h1 className='md:text-3xl sm:text-2xl text-xl font-bold text-yellow-500'>{title}</h1>
                 <div className="row row-cols-xl-6 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2">
                     {
-                        movies.length > 0 && movies.map((movie, index) => (
-                            <MovieCard movie={movie} key={index} />                            
-                        ))
+                        movies.length > 0 ?
+                            movies.length > 0 && movies.map((movie, index) => (
+                                <MovieCard movie={movie} key={index} />
+                            ))
+                            :
+                            [...Array(12)].map((_,ind) => (
+                                <MovieCardSkeleton key={ind}/>
+                            ))
                     }
                 </div>
             </div>
