@@ -11,7 +11,6 @@ function MovieList({ movies,title }: MovieListProps) {
     return (
         <>
             <div className="m-14">
-                {}
                 <h1 className='text-xl font-bold text-yellow-500'>{title}</h1>
                 <div className="row row-cols-6">
                     {

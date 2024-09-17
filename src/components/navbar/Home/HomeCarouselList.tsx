@@ -14,13 +14,16 @@ function HomeCarouselList({ next, carouselMovies }: HomeCarouselListProps) {
         <>
             <div>
                 <h1 className='font-bold text-xl text-yellow-500'>Up Next</h1>
-                {
-                    next.map((item, index) => (
-                       <CarouselMiniCard carouselMovies={carouselMovies} item={item} index={index}/>
+                <div className="row">
+                    {
+
+                        next.map((item, index) => (
+                            <CarouselMiniCard carouselMovies={carouselMovies} item={item} index={index} />
 
 
-                    ))
-                }
+                        ))
+                    }
+                </div>
             </div>
         </>
     )

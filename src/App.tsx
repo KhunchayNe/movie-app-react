@@ -12,12 +12,12 @@ function App() {
     {/* <div className='bg-red-400'>App</div> */}
     <BrowserRouter>
     <Navbar />
-     {/* <Routes>
+     <Routes>
        <Route path='/' element={<Home />} />
-       <Route path='/movies' element={<Movies/>} />
+       {/* <Route path='/movies' element={<Movies/>} />
        <Route path='/details/:id' element={<Details/>} />
-       <Route path='*' element={<Navigate to="/"/>} />
-     </Routes> */}
+       <Route path='*' element={<Navigate to="/"/>} /> */}
+     </Routes>
     </BrowserRouter> 
    </>
 
