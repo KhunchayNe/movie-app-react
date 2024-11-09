@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  movie-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: movie-app
+    restart: unless-stopped
+    # ports:
+    #   - "3000:80"
+    environment:
+      - VIRTUAL_PORT=80
+      - VIRTUAL_HOST=movie.longdev.studio
+      - LETSENCRYPT_HOST=movie.longdev.studio
+      - LETSENCRYPT_EMAIL=work.siwapun.kh@gmail.com
+
+networks:
+  default:
+    external: true
+    name: reverse-proxy
